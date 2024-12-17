@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "erpc.fullname" . }}
+  labels:
+    {{- include "erpc.labels" . | nindent 4 }}
+data:
+  erpc.yml:
+{{ toYaml .Values.erpc | indent 4 }}
