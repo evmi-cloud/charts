@@ -1,6 +1,7 @@
 apiVersion: v2
 name: erpc
 description: A Helm chart to deploy eRPC (https://github.com/erpc/erpc)
+icon: "https://avatars.githubusercontent.com/u/6142249?s=256&v=256"
 
 # A chart can be either an 'application' or a 'library' chart.
 #
