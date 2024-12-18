@@ -18,9 +18,9 @@ spec:
       
       annotations:
       {{- if .Values.erpc.metrics.enabled }}
-        prometheus.io/port': "/metrics"
-        prometheus.io/path': "{{.Values.erpc.metrics.port}}"
-        prometheus.io/scrape': "true"
+        prometheus.io/port: "/metrics"
+        prometheus.io/path: "{{.Values.erpc.metrics.port}}"
+        prometheus.io/scrape: "true"
       {{- end}}
       {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
