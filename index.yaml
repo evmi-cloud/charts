@@ -3,12 +3,12 @@ entries:
   erpc:
   - apiVersion: v2
     appVersion: 0.0.33
-    created: "2024-12-18T02:19:34.82632Z"
+    created: "2024-12-18T02:28:58.495696Z"
     description: A Helm chart to deploy eRPC (https://github.com/erpc/erpc)
-    digest: 7bce1c53ed23ef5162a899d14254277f90b1ba600101c4326e056afe5ed96439
+    digest: cce4983389b082eee723de8da6d156a9c1a91d6b14a06c9c1cec70bb31dd2da2
     name: erpc
     type: application
     urls:
     - https://charts.evmi.cloud/erpc-0.1.0.tgz
     version: 0.1.0
-generated: "2024-12-18T02:19:34.825873Z"
+generated: "2024-12-18T02:28:58.495249Z"

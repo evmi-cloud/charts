@@ -51,7 +51,7 @@ spec:
               protocol: TCP
           {{- if eq .Values.erpc.metrics.enabled true}}
             - name: metrics
-              containerPort: {{.Values.erpc.metrics.httpPort}}
+              containerPort: {{.Values.erpc.metrics.port}}
               protocol: TCP
           {{- end}}
           livenessProbe:
