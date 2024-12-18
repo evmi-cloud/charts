@@ -5,5 +5,5 @@ metadata:
   labels:
     {{- include "erpc.labels" . | nindent 4 }}
 data:
-  erpc.yml:
+  erpc.yml: |
 {{ toYaml .Values.erpc | indent 4 }}
