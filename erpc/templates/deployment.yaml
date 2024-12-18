@@ -4,11 +4,6 @@ metadata:
   name: {{ include "erpc.fullname" . }}
   annontations:
     checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
-    {{- if eq .Values.erpc.metrics.enabled true}}
-    prometheus.io/port': "/metrics"
-    prometheus.io/path': "{{.Values.erpc.metrics.httpPort}}"
-    prometheus.io/scrape': "true"
-    {{- end}}
   labels:
     {{- include "erpc.labels" . | nindent 4 }}
 spec:
@@ -20,8 +15,14 @@ spec:
       {{- include "erpc.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
+      
       annotations:
+      {{- if .Values.erpc.metrics.enabled }}
+        prometheus.io/port': "/metrics"
+        prometheus.io/path': "{{.Values.erpc.metrics.port}}"
+        prometheus.io/scrape': "true"
+      {{- end}}
+      {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
@@ -49,7 +50,7 @@ spec:
             - name: http
               containerPort: {{.Values.erpc.server.httpPort}}
               protocol: TCP
-          {{- if eq .Values.erpc.metrics.enabled true}}
+          {{- if .Values.erpc.metrics.enabled}}
             - name: metrics
               containerPort: {{.Values.erpc.metrics.port}}
               protocol: TCP
