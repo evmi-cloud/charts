@@ -14,14 +14,6 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-dependencies:
-  redis: 
-    enabled: true
-
-global:
-  redis:
-    password: "erpc"
-
 erpc:
   server:
     listenV4: true
